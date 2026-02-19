@@ -1,3 +1,5 @@
+import os
+import sys
 from datetime import datetime, timedelta
 
 import customtkinter as ctk
@@ -5,6 +7,14 @@ import customtkinter as ctk
 from core.calculator import calculate_days_remaining, calculate_total_days
 from core.settings import load_settings
 from ui.settings_dialog import SettingsDialog
+
+
+def get_resource_path(relative_path):
+    """获取资源文件路径（支持开发和打包后的环境）"""
+    if hasattr(sys, '_MEIPASS'):
+        # PyInstaller 打包后的临时目录
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.dirname(os.path.dirname(__file__)), relative_path)
 
 
 class LifeCountdownApp(ctk.CTk):
@@ -16,6 +26,14 @@ class LifeCountdownApp(ctk.CTk):
         self.title("人生计时器")
         self.geometry("500x350")
         self.resizable(False, False)
+
+        # 设置窗口图标
+        try:
+            icon_path = get_resource_path('assets/app.ico')
+            if os.path.exists(icon_path):
+                self.iconbitmap(icon_path)
+        except Exception:
+            pass  # 图标加载失败不影响程序运行
 
         self.settings = load_settings()
 

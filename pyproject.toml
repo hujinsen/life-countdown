@@ -7,3 +7,6 @@ requires-python = ">=3.13"
 
 # GUI dependency for the desktop app
 dependencies = ["customtkinter>=5.0", "pillow>=9.0"]
+
+[dependency-groups]
+dev = ["pyinstaller>=6.0"]
