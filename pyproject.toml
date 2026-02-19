@@ -1,0 +1,9 @@
+[project]
+name = "life-countdown"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+
+# GUI dependency for the desktop app
+dependencies = ["customtkinter>=5.0", "pillow>=9.0"]
