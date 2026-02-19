@@ -3,7 +3,9 @@
 因此，我将这个倒计时作为我的一个小项目，用python语言实现。
 
 用户界面：
+
 ![alt text](main_frame.png)
+
 ![alt text](setting.png)
 
 
